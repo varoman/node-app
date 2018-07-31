@@ -6,36 +6,36 @@ Navigate to https://powerful-garden-58440.herokuapp.com you should see "app work
 
 Steps to test endpoints:
 
-- GET
-  endpoint: https://powerful-garden-58440.herokuapp.com/
+- GET <br>
+  endpoint: https://powerful-garden-58440.herokuapp.com/ <br>
   you'll get all the existing users
   
-- GET specific user
-  endpoint: https://powerful-garden-58440.herokuapp.com/${id}
-  ${id} can be consumed while GETing the list
+- GET specific user <br>
+  endpoint: https://powerful-garden-58440.herokuapp.com/${id} <br>
+  ${id} can be consumed while GETing the list <br>
   
-- PUT
-  endpoint: https://powerful-garden-58440.herokuapp.com/${id}
-  body: {
-	  "first_name": "Romelu",
-    "email":"lukaku@gmail.com",
-    "last_name": "Lukaku",
-    "street_address": "Roden str",
-    "city": "Brusselles",
-    "country": "belgium"
-  }
+- PUT <br>
+  endpoint: https://powerful-garden-58440.herokuapp.com/${id} <br>
+  body: { <br> &nbsp
+    "first_name": "Romelu", <br>
+    "email":"lukaku@gmail.com",<br>
+    "last_name": "Lukaku",<br>
+    "street_address": "Roden str",<br>
+    "city": "Brusselles",<br>
+    "country": "belgium"<br>
+  } <br>
   partial update can be performed
   
- - POST 
-   endpoint: https://powerful-garden-58440.herokuapp.com/
-   body: {
-     "first_name": "Romelu",
-     "email":"lukaku@gmail.com",
-     "last_name": "Lukaku",
-     "street_address": "Roden str",
-     "city": "Brusselles",
-     "country": "belgium"
-   }
+ - POST <br>
+   endpoint: https://powerful-garden-58440.herokuapp.com/ <br>
+   body: {<br>
+     "first_name": "Romelu",<br>
+     "email":"lukaku@gmail.com",<br>
+     "last_name": "Lukaku",<br>
+     "street_address": "Roden str",<br>
+     "city": "Brusselles",<br>
+     "country": "belgium"<br>
+   }<br>
    
- - DELETE
+ - DELETE<br>
    endpoint: https://powerful-garden-58440.herokuapp.com/${id}
