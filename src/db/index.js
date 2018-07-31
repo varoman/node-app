@@ -1,6 +1,6 @@
 const mongoose = require('mongoose'),
       userModel = require('../models/user'),
-      URI = 'mongodb://heroku_2x06vmh4:6g34nm879i6r0q6e2ave2kpkod@ds261430.mlab.com:61430/heroku_2x06vmh4',
+      URI = 'mongodb://heroku_3s4t03px:gg9n3snrleb95rqf7t9mllpr4o@ds159651.mlab.com:59651/heroku_3s4t03px',
       db = mongoose.connect(URI, { useNewUrlParser: true });
 
 
