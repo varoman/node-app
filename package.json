@@ -1,17 +1,19 @@
 {
   "name": "node-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "heroku app build with nodejd and express",
+  "repository": "https://github.com/varoman/node-app",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "varo manukyan",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongodb": "^3.1.1",
-    "mongoose": "^5.2.6"
+    "mongoose": "^5.2.6",
+    "request": "^2.87.0"
   }
 }
