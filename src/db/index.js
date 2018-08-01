@@ -25,14 +25,18 @@ const getSingleUserById = (userId, res) => {
 };
 
 const updateUser = (req, res) => {
-    userModel.updateOne({_id: req.params.id}, req.body, (err, result) => {
-        if (err)
-            res.sendStatus(503);
-        else if (!result.n)
-            res.sendStatus(404);
-        else
-            res.sendStatus(200);
-    });
+    return new Promise((resolve, reject) => {
+        userModel.updateOne({_id: req.params.id}, req.body, (err, result) => {
+            if (err)
+                res.sendStatus(503);
+            else if (!result.n)
+                res.sendStatus(404);
+            else
+            userModel.findById(req.params.id, (err, user) => {
+                resolve(user._doc);
+            });
+        });
+    })
 };
 
 const createUser = (user, res) => {

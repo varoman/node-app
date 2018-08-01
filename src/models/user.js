@@ -9,7 +9,8 @@ const userSchema = mongoose.Schema({
     email: {type: String, required: true, match: emailPattern},
     street_address: {type: String, required: true},
     city: {type: String, required: true, match: pattern},
-    country: {type: String, required: true, match: pattern}
+    country: {type: String, required: true, match: pattern},
+    zendesk_id: {type: String, required: true},
 }, { collection : 'customers' });
 
 const user = mongoose.model('user', userSchema);

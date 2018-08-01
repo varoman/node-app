@@ -13,11 +13,22 @@ router.route('/:id?')
             db_api.getUsers(res);
     })
     .put((req, res) => {
-        db_api.updateUser(req, res);
+        if (!req.params.id) res.sendStatus(400);
+        db_api.updateUser(req, res).then(user => {
+            zendesk.updateUser(user);
+            res.sendStatus(200);
+        });
     })
     .post((req, res) => {
-        db_api.createUser(req.body, res);
-        zendesk.createZendeskUser(req.body);
+        zendesk.createZendeskUser(req.body)
+            .then((zendeskUser) => {
+                const user = req.body;
+                user.zendesk_id = zendeskUser.user.id;
+                db_api.createUser(user, res);
+            })
+            .catch(err => {
+                res.status(400).end(err.message);
+            });
     })
     .delete((req, res) => {
         db_api.dropUser(req.params.id, res);
