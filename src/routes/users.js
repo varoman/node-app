@@ -1,7 +1,8 @@
 const router = require('express').Router(),
       bodyParser = require('body-parser'),
       db_api = require('../db/'),
-      zendesk = require('../zendesk_api');
+      zendesk = require('../zendesk_api'),
+      userModel = require('../models/user');
 
 router.use(bodyParser.json());
 
@@ -20,7 +21,7 @@ router.route('/:id?')
         });
     })
     .post((req, res) => {
-        zendesk.createZendeskUser(req.body)
+        zendesk.createUser(req.body)
             .then((zendeskUser) => {
                 const user = req.body;
                 user.zendesk_id = zendeskUser.user.id;
@@ -31,7 +32,11 @@ router.route('/:id?')
             });
     })
     .delete((req, res) => {
-        db_api.dropUser(req.params.id, res);
+        userModel.findById(req.params.id, (err, user) => {
+            zendesk.deleteUser(user).then(() => {
+                db_api.dropUser(req.params.id, res);
+            });
+        });
     });
 
 module.exports = router;

@@ -2,7 +2,7 @@ const request = require('request');
 
 const auth = `Basic ${new Buffer('varomanukyan@gmail.com:asdasdasd').toString('base64')}`;
 
-const createZendeskUser = (user) => {
+const createUser = (user) => {
     const postData = {
         user: {
             name: `${user.first_name} ${user.last_name}`,
@@ -53,7 +53,26 @@ const updateUser = editedUser => {
     });
 };
 
+const deleteUser = (user) => {
+    return new Promise((resolve, reject) => {
+        request.delete({
+            url : `https://varo.zendesk.com/api/v2/users/${user.zendesk_id}.json`,
+            json: true,
+            headers : {
+                'Authorization' : auth
+            }
+        }, (err, res, body)=> {
+            if (err)
+                reject(err);
+            else
+                resolve(body);
+        });
+    });
+
+};
+
 module.exports = {
-    createZendeskUser,
-    updateUser
+    createUser,
+    updateUser,
+    deleteUser
 };

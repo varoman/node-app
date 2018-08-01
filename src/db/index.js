@@ -32,9 +32,9 @@ const updateUser = (req, res) => {
             else if (!result.n)
                 res.sendStatus(404);
             else
-            userModel.findById(req.params.id, (err, user) => {
-                resolve(user._doc);
-            });
+                userModel.findById(req.params.id, (err, user) => {
+                    resolve(user._doc);
+                });
         });
     })
 };
