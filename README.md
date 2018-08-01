@@ -16,7 +16,7 @@ Steps to test endpoints:
   
 - PUT <br>
   endpoint: https://powerful-garden-58440.herokuapp.com/${id} <br>
-  body: { <br> &nbsp
+  body: { <br>
     "first_name": "Romelu", <br>
     "email":"lukaku@gmail.com",<br>
     "last_name": "Lukaku",<br>
